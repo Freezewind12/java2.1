@@ -8,7 +8,7 @@ public class Bus extends Vehicle{
 		return numberOfSeats;
 	}
 	public void setNumberOfSeats(int numberOfSeats) {
-		if(numberOfSeats > 0 && numberOfSeats < 100) 
+		if(numberOfSeats > 5 && numberOfSeats < 300) 
 			this.numberOfSeats = numberOfSeats;
 		else
 			this.numberOfSeats = 5;

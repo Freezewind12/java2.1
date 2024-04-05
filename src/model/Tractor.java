@@ -3,6 +3,7 @@ package model;
 public class Tractor extends Vehicle{
 	private String additionalTechniques;
 	private boolean isOnlyLargeTires;
+	
 	public String getAdditionalTechniques() {
 		return additionalTechniques;
 	}

@@ -3,10 +3,10 @@ package model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Puchase {
+public class Purchase {
 	private String userCardNr;
 	private ArrayList<Vehicle> shoppingList = new ArrayList<Vehicle>();
-	private LocalDateTime dateTime;
+	private LocalDateTime dateTime= LocalDateTime.now();
 	
 	public String getUserCardNr() {
 		return userCardNr;
@@ -20,16 +20,27 @@ public class Puchase {
 	public ArrayList<Vehicle> getShoppingList() {
 		return shoppingList;
 	}
+	public void setShoppingList(ArrayList<Vehicle> shoppingList) {
+		if(userCardNr != null)
+			this.shoppingList = shoppingList;
+		else
+			this.shoppingList = null;
+	}
 	
 	public LocalDateTime getDateTime() {
 		return dateTime;
 	}
-	public void setDateTime() {
-		this.dateTime = LocalDateTime.now();
-	}
 	// Constructors
+	public Purchase() {
+		setUserCardNr("asd");
+	}
 	
+	public Purchase(String userCardNr, ArrayList<Vehicle> shoppingList, LocalDateTime dateTime) {
+		setUserCardNr(userCardNr);
+	}
 	// toString
-	
-
+	@Override
+	public String toString() {
+		return "Purchase [userCardNr=" + userCardNr + ", shoppingList=" + shoppingList + ", dateTime=" + dateTime + "]";
+	}
 }
