@@ -21,10 +21,10 @@ public class Purchase {
 		return shoppingList;
 	}
 	public void setShoppingList(ArrayList<Vehicle> shoppingList) {
-		if(userCardNr != null)
+		if(shoppingList != null)
 			this.shoppingList = shoppingList;
 		else
-			this.shoppingList = null;
+			this.shoppingList = new ArrayList<Vehicle>();
 	}
 	
 	public LocalDateTime getDateTime() {
@@ -32,11 +32,14 @@ public class Purchase {
 	}
 	// Constructors
 	public Purchase() {
-		setUserCardNr("asd");
+		setUserCardNr("011010101");
 	}
-	
-	public Purchase(String userCardNr, ArrayList<Vehicle> shoppingList, LocalDateTime dateTime) {
+	public Purchase(String userCardNr) {
 		setUserCardNr(userCardNr);
+	}
+	public Purchase(String userCardNr, ArrayList<Vehicle> shoppingList) {
+		setUserCardNr(userCardNr);
+		setShoppingList(shoppingList);
 	}
 	// toString
 	@Override
