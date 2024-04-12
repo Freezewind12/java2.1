@@ -65,7 +65,37 @@ public class mainService {
         }
         return allBusses;
     }
+    public static void updateBusById(int id, float price, int quantity, Fuel type, int numberOfSeats) throws Exception {
+    	for(Vehicle tempV: allVehicles) {
+    		if(tempV.getID() == id && tempV instanceof Bus) {
+    			Bus tempBus = (Bus)tempV;
+    			tempBus.setPrice(price);
+    			tempBus.setQuantity(quantity);
+    			tempBus.setFuel(type);
+    			tempBus.setNumberOfSeats(numberOfSeats);
+    			return;
+    		}
+    	}
+    	throw new Exception("There is no Bus with " + id + " id");
+    }
     public static void deleteBusById(int id) {
     	allVehicles.removeIf(vehicle -> vehicle instanceof Bus && vehicle.getID() == id);
+    }
+    public void createNewBus(Bus newBus) {
+        for (Vehicle vehicle : allVehicles) {
+            if (vehicle instanceof Bus && vehicle.getID() == newBus.getID()) {
+                return;
+            }
+        }
+        allVehicles.add(newBus);
+    }
+    public List<String> showVehiclesIfPriceLessThan10000() {
+        List<String> filteredVehicles = new ArrayList<>();
+        for (Vehicle vehicle : allVehicles) {
+            if (vehicle.getPrice() < 10000) {
+                filteredVehicles.add(vehicle.toString());
+            }
+        }
+        return filteredVehicles;
     }
 }
